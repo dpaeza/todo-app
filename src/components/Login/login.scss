@@ -1,0 +1,78 @@
+.loginPage{
+    background-image: url('../../assets/images/bg-desktop-light.jpg');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+
+    &__modal{
+        background-color: white;
+        padding: 25px 15px 0px 15px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 6px;
+
+        h1{
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-weight: 700;
+            letter-spacing: 8px;
+            font-size: 26px;
+        }
+
+        div{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        p{
+            font-size: 12px;
+            margin-top: 30px;
+        }
+    }
+
+    &__Form{
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+
+        label{
+            font-size: 16px;
+        }
+
+        input{
+            height: 35px;
+            border-radius: 5px;
+            border: 1px solid hsl(233,11%,84%);
+            padding: 0px 10px;
+        }
+
+        input:focus{
+            outline: 1px solid #B16BF0
+        }
+
+        button{
+            border: none;
+            background-color: #B16BF0;
+            color: white;
+            height: 35px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: #BF6CFF;
+        }
+    }
+
+    &__errors{
+        color: #EA3FF7;
+        font-size: 12px;
+    }
+}

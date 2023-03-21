@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate} from "react-router-dom";
 import { registeredUser, postUser } from "../../services/users";
+import { postNewUserList } from "../../services/to_do_lists";
 import Swal from "sweetalert2";
 
 const Register = () => {
@@ -25,8 +26,11 @@ const Register = () => {
             } else {
                 try {
                     const response = await postUser(data);
-                    console.log(response)
-                    if (response == 201) {
+                    if (response.status == 201) {
+                        await postNewUserList({
+                            id_user: response.data.id,
+                            list: []
+                        })
                         Swal.fire({
                             icon: "success",
                             iconColor: "#f63d5d",
@@ -97,7 +101,7 @@ const Register = () => {
                         />
                         {errors.password ? <span className="loginPage__errors">{errors.password.message}</span> : <></>}
                     </div>
-                    <div>
+                    {/* <div>
                         <label>URL imagen de perfil</label>
                         <input
                             type="url"
@@ -110,7 +114,7 @@ const Register = () => {
                             })}
                         />
                         {errors.password ? <span className="loginPage__errors">{errors.profile_image.message}</span> : <></>}
-                    </div>
+                    </div> */}
                     <button type="submit">Registrar</button>
                 </form>
                 <p>¿Ya te encuentras registrado? 

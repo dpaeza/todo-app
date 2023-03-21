@@ -126,7 +126,7 @@ const Home = () => {
                                 if (selectedFilter === 'completed') return item.status === 'completed';
                                 return false;
                                 }).map((item, index) => (
-                                <div key={index} className={`home__fixed__list__itemsContainer__item${item.status === 'active' ? '__active' : '__completed'}`}>
+                                <div key={index} className={`home__fixed__list__itemsContainer__item${item.status === 'active' ? '__active' : '__completed'}${light ? '' : '__dark'}`}>
                                     <div onClick={ () => handleCompleted(item)}>
                                         {item.status == "completed" ? <img src={check} alt="check icon" /> : ''}
                                     </div>
@@ -136,36 +136,36 @@ const Home = () => {
                             ))
                         }
                     </div>
-                    <div className="home__fixed__list__options">
+                    <div className={ light ? "home__fixed__list__options" : "home__fixed__list__options__dark"}>
                         <p className="home__fixed__list__options__left">{itemsLeft} items left</p>
                         <div className="home__fixed__list__options__divOptions" >
                             <p
-                                style={{ color: selectedFilter === 'all' ? 'hsl(220,98%,61%)' : '#C1C0C4' }}
+                                style={{ color: selectedFilter === 'all' ? 'hsl(220,98%,61%)' : light ? '#C1C0C4' : '#46485f' }}
                                 onClick={() => setSelectedFilter('all')}
                             >All</p>
                             <p
-                                style={{ color: selectedFilter === 'active' ? 'hsl(220,98%,61%)' : '#C1C0C4' }}
+                                style={{ color: selectedFilter === 'active' ? 'hsl(220,98%,61%)' : light ? '#C1C0C4' : '#46485f' }}
                                 onClick={() => setSelectedFilter('active')}
                             >Active</p>
                             <p
-                                style={{ color: selectedFilter === 'completed' ? 'hsl(220,98%,61%)' : '#C1C0C4' }}
+                                style={{ color: selectedFilter === 'completed' ? 'hsl(220,98%,61%)' : light ? '#C1C0C4' : '#46485f' }}
                                 onClick={() => setSelectedFilter('completed')}
                             >Completed</p>
                         </div>
                         <p className="home__fixed__list__options__right" onClick={() => handleClearCompleted()}>Clear Completed</p>
                     </div>
                     </div>
-                        <div className="home__fixed__list__options__divOptions__mobile" >
+                        <div className= {light ? "home__fixed__list__options__divOptions__mobile" : "home__fixed__list__options__divOptions__mobile__dark"} >
                         <p
-                            style={{ color: selectedFilter === 'all' ? 'hsl(220,98%,61%)' : '#C1C0C4' }}
+                            style={{ color: selectedFilter === 'all' ? 'hsl(220,98%,61%)' : light ? '#C1C0C4' : '#46485f' }}
                             onClick={() => setSelectedFilter('all')}
                         >All</p>
                         <p
-                            style={{ color: selectedFilter === 'active' ? 'hsl(220,98%,61%)' : '#C1C0C4' }}
+                            style={{ color: selectedFilter === 'active' ? 'hsl(220,98%,61%)' : light ? '#C1C0C4' : '#46485f' }}
                             onClick={() => setSelectedFilter('active')}
                         >Active</p>
                         <p
-                            style={{ color: selectedFilter === 'completed' ? 'hsl(220,98%,61%)' : '#C1C0C4' }}
+                            style={{ color: selectedFilter === 'completed' ? 'hsl(220,98%,61%)' : light ? '#C1C0C4' : '#46485f' }}
                             onClick={() => setSelectedFilter('completed')}
                         >Completed</p>
                     </div>

@@ -24,8 +24,8 @@ export const registeredUser = async (user) => {
 
 export const postUser = async (obj) => {
     try {
-        const { status } = await axios.post(endpoints.users, obj)
-        return status
+        const response = await axios.post(endpoints.users, obj)
+        return response
     } catch (error) {
         console.log(error);
         return {}

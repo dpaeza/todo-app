@@ -20,3 +20,13 @@ export const createTodo = async (idUser,toDo) => {
         return {}
     }
 }
+
+export const postNewUserList = async (obj) => {
+    try {
+        const { status } = await axios.post(endpoints.to_do_lists, obj)
+        return status
+    } catch (error) {
+        console.log(error);
+        return {}
+    }
+}
